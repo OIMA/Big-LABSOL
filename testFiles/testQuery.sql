@@ -43,4 +43,4 @@ ef. s25c_accion = po.s25c_accion
 inner join municipios mp on (o.municipio = mp.id_finanzas)
 inner join localidades lo on (o.localidad = lo.id_finanzas and o.municipio = mp.id_finanzas)
 inner join marginacion mar on (mar.id_marginacion = lo.id_marginacion)
-where oa.estatus_sefin = 0 and oa.tipo = 0 and p.anual_pr = 2014 and d.id_dependencia = 12 group by oa.no_oficio ASC;--bjhdgfkdfh
+where oa.estatus_sefin = 0 and oa.tipo = 0 and p.anual_pr = 2014 and d.id_dependencia = 12 group by oa.no_oficio ASC;
