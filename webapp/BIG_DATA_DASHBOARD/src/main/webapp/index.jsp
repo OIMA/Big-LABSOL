@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : Nov 27, 2014, 9:23:19 PM
+    Author     : oima
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +14,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="author" content="Oscar Iván Martínez Arce">
 
         <title>Big-Labsol</title>
 
@@ -33,6 +40,9 @@
     </head>
 
     <body>
+        <script>
+            window.location.href = "BigDataServer.labsol";
+        </script>
 
         <div id="wrapper">
 
@@ -346,6 +356,12 @@
                                         </ul>
                                         <!-- /.nav-third-level -->
                                     </li>
+                                    <li>
+                                        <a class="text-success" href="#">Ver tablas</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-success" href="#">Ver Base de datos</a>
+                                    </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li><!--Bases de datos Beeswax-->
@@ -403,13 +419,13 @@
                             </li><!--Shell-->
 
                             <li class="">
-                                <a class="text-success" href="#"><i class="fa fa-archive fa-fw"></i> Administrador de archivos<span class="fa arrow"></span></a>
+                                <a class="text-success" href="#"><i class="fa fa-archive fa-fw"></i> Administrador de archivos</a>
                             </li><!--Administrador de archivos-->
                             <li class="">
                                 <a class="text-success" href="#"><i class="fa fa-spinner fa-fw"></i> Administrador de trabajos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="" href="#"> Monitor de trabajos</a>
+                                        <a class="text-success" href="#"> Monitor de trabajos</a>
                                     </li>
                                     <li>
                                         <a class="text-success " href="#" > Crear trabajos</a>
@@ -433,7 +449,7 @@
                                 <a class="text-success" href="#"><i class="fa fa-gears fa-fw"></i> Configuraci&oacute;n<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="" href="#">Configuraci&oacute;n de servicios</a>
+                                        <a class="text-success" href="#">Configuraci&oacute;n de servicios</a>
                                     </li>
                                     <li>
                                         <a class="text-success " href="#" >Configuraci&oacute;n pendiente</a>
@@ -497,3 +513,4 @@
     </body>
 
 </html>
+
