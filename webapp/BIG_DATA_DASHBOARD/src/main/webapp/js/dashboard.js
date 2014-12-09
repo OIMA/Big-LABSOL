@@ -4,7 +4,16 @@ $(document).ready(function () {
 //$('#iframe').contentWindow.location.reload(true);
 });
 
-$(".link").click(function(){
+$(".link").click(function () {
+    var classList = $(this).attr('class').split(/\s+/);
+    $.each(classList, function (i, v) {
+        console.log(v);
+        if (v === 'ambari') {
+            $("#iframe").css("margin-top", "-123");
+        } else {
+            $("#iframe").css("margin-top", "-43");
+        }
+    });
     var url = $(this).attr('url');
     reloadFrame(url);
 });

@@ -40,7 +40,6 @@
     </head>
 
     <body>
-        <h1>${test}</h1>
         <div id="wrapper">
 
             <!-- Navigation -->
@@ -53,7 +52,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#" id="test">
-                        <img src="http://labsol.org.mx/assets/img/labsol.png" style="height:45px; width:120px;margin-top: -12px;" alt="Labsol" />
+                        <img src="http://labsol.org.mx/assets/img/labsol.png" style="height:45px; width:120px;margin-top: -12px; margin-left: 45px;" alt="Labsol" />
                     </a>
                 </div>
                 <!-- /.navbar-header -->
@@ -283,7 +282,7 @@
                                 <!--/input-group--> 
                             </li><!--Busqueda-->
                             <li>
-                                <a class="link text-success" href="#">
+                                <a class="text-success" href="#">
                                     <i class="fa fa-dashboard fa-fw"></i> 
                                     Monitoreo del clúster
                                     <span class="fa arrow"></span>
@@ -293,10 +292,10 @@
                                         <a class="ambari text-success" href="#"><i class="glyphicon glyphicon-eye-open "></i> Monitoreo de recursos<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="ambari text-success" href="#">Monitor de recursos</a>
+                                                <a class="ambari text-success link" href="#" url="${monitorRecursos}">Monitor de recursos</a>
                                             </li>
                                             <li>
-                                                <a class="ambari text-success" href="#">Carga de recursos</a>
+                                                <a class="ambari text-success link" href="#" url="${cargaRecursos}">Carga de recursos</a>
                                             </li>
                                         </ul>
                                         <!-- /.nav-third-level -->
@@ -305,19 +304,19 @@
                                         <a class="text-success" href="#"><i class="glyphicon glyphicon-eye-open "></i> Monitoreo de servicios<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="ambari text-success" href="#">Monitor de servicios</a>
+                                                <a class="ambari text-success link" href="#" url="${monitorServicios}">Monitor de servicios</a>
                                             </li>
                                             <li>
-                                                <a class="ambari text-success" href="#">Monitor de tareas</a>
+                                                <a class="ambari text-success link" href="#" url="${monitorTareas}">Monitor de tareas</a>
                                             </li>
                                             <li>
-                                                <a class="ambari text-success" href="#">Monitor de hosts</a>
+                                                <a class="ambari text-success link" href="#" url="${monitorHosts}">Monitor de hosts</a>
                                             </li>
                                         </ul>
                                         <!-- /.nav-third-level -->
                                     </li>
                                     <li>
-                                        <a class="text-success" href="#">Administradores de clúster</a>
+                                        <a class="ambari text-success link" href="#" url="${administradoresCluster}">Administradores de clúster</a>
                                     </li>
                                 </ul>
                             </li><!--Cluster-->
@@ -328,36 +327,36 @@
                                         <a class="text-success" href="#"><i class="glyphicon glyphicon-share fa-fw"></i> Crear base de datos<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="text-success" href="#">Crear tabla</a>
+                                                <a class="hue text-success link" href="#" url="${crearTabla}">Crear tabla</a>
                                             </li>
                                             <li>
-                                                <a class="text-success" href="#">Crear base de datos</a>
+                                                <a class="hue text-success link" href="#" url="${crearBaseDatos}">Crear base de datos</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a class="text-success" href="#"><i class="glyphicon glyphicon-eye-open "></i> Consultar base de datos<span class="fa arrow"></span></a>
+                                        <a class="text-success" href="#"><i class="glyphicon glyphicon-eye-open"></i> Consultar base de datos<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="text-success" href="#">Crear consulta</a>
+                                                <a class="hue text-success link" href="#" url="${crearConsulta}">Crear consulta</a>
                                             </li>
                                             <li>
-                                                <a class="text-success" href="#">Mis consultas</a>
+                                                <a class="hue text-success link" href="#" url="${misConsultas}">Mis consultas</a>
                                             </li>
                                             <li>
-                                                <a class="text-success" href="#">Lista de consultas</a>
+                                                <a class="hue text-success link" href="#" url="${listaConsultas}">Lista de consultas</a>
                                             </li>
                                             <li>
-                                                <a class="text-success" href="#">Historial de consultas</a>
+                                                <a class="hue text-success link" href="#" url="${historialConsultas}">Historial de consultas</a>
                                             </li>
                                         </ul>
                                         <!-- /.nav-third-level -->
                                     </li>
                                     <li>
-                                        <a class="text-success" href="#">Ver tablas</a>
+                                        <a class="hue text-success link" href="#" url="${verTablas}">Ver tablas</a>
                                     </li>
                                     <li>
-                                        <a class="text-success" href="#">Ver Base de datos</a>
+                                        <a class="hue text-success link" href="#" url="${verBaseDatos}">Ver Base de datos</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -366,19 +365,19 @@
                                 <a class="text-success" href="#"><i class="fa fa-bullseye"></i> Rutinas de oozie<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="active text-success" href="#">Monitor de rutinas</a>
+                                        <a class="hue text-success link" href="#" url="${monitorRutinas}">Monitor de rutinas</a>
                                     </li>
                                     <li>
                                         <a class="text-success" href="#"><i class="glyphicon glyphicon-share fa-fw"></i> Administrador de rutinas<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="text-success" href="#">Ver rutinas</a>
+                                                <a class="hue text-success link" href="#">Ver rutinas</a>
                                             </li>
                                             <li>
-                                                <a class="text-success" href="#">Crear rutina</a>
+                                                <a class="hue text-success link" href="#">Crear rutina</a>
                                             </li>
                                             <li>
-                                                <a class="text-success" href="#">Importar rutina</a>
+                                                <a class="hue text-success link" href="#">Importar rutina</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -386,15 +385,15 @@
                                         <a class="text-success" href="#"><i class="glyphicon glyphicon-share fa-fw"></i> Coordinaci&oacute;n de rutinas<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="text-success" href="#">Ver coordinadores</a>
+                                                <a class="hue text-success link" href="#" url="${verCoordinadores}">Ver coordinadores</a>
                                             </li>
                                             <li>
-                                                <a class="text-success" href="#">Crear coordinador</a>
+                                                <a class="hue text-success link" href="#" url="${crearCoordinadores}">Crear coordinador</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a class="active text-success " href="#" >Enlazador de rutinas</a>
+                                        <a class="hue text-success link" href="#" url="${enlazadorRutinas}">Enlazador de rutinas</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -403,13 +402,13 @@
                                 <a class="text-success" href="#"><i class="fa fa-terminal fa-fw"></i> Shell<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="active text-success" href="#">Pig</a>
+                                        <a class="hue text-success link" href="#" url="${monitorTareas}">Pig</a>
                                     </li>
                                     <li>
-                                        <a class="active text-success " href="#" >HBase</a>
+                                        <a class="text-success " href="#" >HBase</a>
                                     </li>
                                     <li>
-                                        <a class="active text-success " href="#" >bash</a>
+                                        <a class="text-success " href="#" >bash</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -477,8 +476,8 @@
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="" style=" padding: 0;margin-left: -2.5%;margin-top: -0px;  height: 100%; width: 107.5%;">
-                            <iframe id="iframe" src="http://127.0.0.1:8000/" scrolling="yes" frameborder="0" 
+                        <div class="" style=" padding: 0;margin-left: -2.5%;margin-top: -43px;  height: 100%; width: 107.5%;">
+                            <iframe id="iframe" src="http://www.labsol.org.mx/" scrolling="yes" frameborder="0" 
                                     style="height: 100%; width: 100%; overflow: hidden;">
                             <h1 class="">Tu navegador no soporta IFrames</h1>
                             </iframe>

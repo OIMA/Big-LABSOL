@@ -26,14 +26,14 @@
     </dependencies>-->
 
     <repositories>
-        <repository>
+<!--        <repository>
             <id>
                 jboss.hibernate
             </id>
             <url>
                 http://repository.jboss.org/nexus/content/groups/public
             </url>
-        </repository>
+        </repository>-->
         <repository>
             <id>
                 org.springframework.maven.release
@@ -42,10 +42,10 @@
                 http://maven.springframework.org/release
             </url>
         </repository>
-        <repository>
+<!--        <repository>
             <id>jboss</id>
             <url>http://repository.jboss.com/maven2</url>
-        </repository>
+        </repository>-->
     </repositories>
     
     <dependencies>
@@ -81,12 +81,12 @@
             <version>4.5.0</version>
         </dependency>-->
         
-        <dependency>
+<!--        <dependency>
             <groupId>com.itextpdf.tool</groupId>
             <artifactId>xmlworker</artifactId>
             <version>1.1.1</version>
             <type>jar</type>
-        </dependency>
+        </dependency>-->
 
         <!--        <dependency>
             <groupId>com.jaspersoft</groupId>
