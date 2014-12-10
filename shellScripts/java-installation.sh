@@ -1,10 +1,9 @@
 #!bin/bash
-export DIRECTORY="/usr/java"
 export JAVA_LINK="http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.tar.gz"
 
 #This will check if any JDK is installed
 
-if type -p java; then
+if java; then
     echo found java executable in PATH
     _java=java
 
@@ -14,12 +13,16 @@ elif [[ -n "$JAVA_HOME" ]] && [[ -x "$JAVA_HOME/bin/java" ]];  then
     
 else
     echo No Java version founded
-    if [! -d "$DIRECTORY"]; then
-	mkdir /usr/java
+    if [ -d /usr/java ]; then
+	
+	echo Found directory
+
+    else
+	sudo mkdir /usr/java
     fi
-    wget -P /usr/java --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "$JAVA_LINK"
-    tar xvzf /usr/java jdk-7u71-linux-x64.tar.gz
-    ln -s /usr/java/jdk1.7.0_71 /usr/java/default
+#Here goes the location of java
+    sudo tar -xzvf /usr/java/jdk-7u71-linux-x64.tar.gz
+    sudo ln -s /usr/java/jdk1.7.0_71 /usr/java/default
     export JAVA_HOME=/usr/java/default
     export PATH=$JAVA_HOME/bin:$PATH
     
@@ -32,20 +35,11 @@ if [[ "$_java" ]]; then
 	echo Done
     else
 
-	rpm -qa | grep java
-	yum remove {java-1*}
+	echo Version menor a 1.7
 
-	if [! which java]; then
-	    if [! -d "$DIRECTORY"]; then
-		mkdir /usr/java
-	    fi
-	    wget -P /usr/java --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "$JAVA_LINK"
-	    tar xvzf /usr/java jdk-7u71-linux-x64.tar.gz
-	    ln -s /usr/java/jdk1.7.0_71 /usr/java/default
-	    export JAVA_HOME=/usr/java/default
-	    export PATH=$JAVA_HOME/bin:$PATH
-	    
-	else
-	    echo Script not Working
     fi
+
 fi
+	
+	   
+exit 0

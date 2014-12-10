@@ -31,6 +31,7 @@ ZOOKEEPER_USER=zookeeper ;
 # User which will own the Oozie services.
 OOZIE_USER=oozie
 
+BIGDATA_USER=hadoop
 
 # A common group shared by services.
 HADOOP_GROUP=hadoop ;
