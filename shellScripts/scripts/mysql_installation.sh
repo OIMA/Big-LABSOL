@@ -1,16 +1,16 @@
 #!/bin/bash
 
-if [[ -d /etc/init.d/mysqld]];then
+if [ -f /etc/init.d/mysqld ]; then
     
     #Start the Intance of my MySQL
-    cd /etc/init.d/mysqld start
+    /etc/init.d/mysqld start
 
     #Set the root user and the corresponding PassWord
     echo "Starting mySql, type a password for root, then [ENTER]: "
     read -s PASSWORD
-    mysqladmin -u root password $PASSWORD
+    sudo mysqladmin -u root password $PASSWORD
     #Remove the log and the contents of STDOUT
-    mysqladmin -u root 2>&1 >/dev/null
+    sudo mysqladmin -u root 2>&1 >/dev/null
 
     #Create the 'dbuser' to grant acces to the Hive metastore
     
@@ -19,16 +19,19 @@ if [[ -d /etc/init.d/mysqld]];then
 
     echo "Insert his password and press [ENTER]: "
     read dbuserpass
+
+    echo "Insert local Host, the press [ENTER]: "
+    read localhost
     
-    mysql -u root < MySqlCommand
+    sudo mysql -u root < MySqlCommands
 
     #Reconnect the database using the dbuser
-    mysql -u $dbuser -p$dbuser
+    sudo mysql -u $dbuser -p$dbuser
 
     #Install  MySQl conector to JAR
     sudo yum install mysql-connector-java*
 
 else
-    sudo install mysql-server
+    sudo yum install mysql-server
     ./$0
 fi
