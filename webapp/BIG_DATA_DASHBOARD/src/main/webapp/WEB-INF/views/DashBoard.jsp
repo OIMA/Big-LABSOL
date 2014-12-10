@@ -29,6 +29,7 @@
 
         <!-- Custom Fonts -->
         <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -283,40 +284,40 @@
                             </li><!--Busqueda-->
                             <li>
                                 <a class="text-success" href="#">
-                                    <i class="fa fa-dashboard fa-fw"></i> 
-                                    Monitoreo del clúster
+                                    <i class="fa fa-sitemap fa-fw"></i> 
+                                    Cl&uacute;ster
                                     <span class="fa arrow"></span>
                                 </a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="ambari text-success" href="#"><i class="glyphicon glyphicon-eye-open "></i> Monitoreo de recursos<span class="fa arrow"></span></a>
+                                        <a class="ambari text-success" href="#"><i class="fa fa-area-chart"></i> Recursos<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="ambari text-success link" href="#" url="${monitorRecursos}">Monitor de recursos</a>
+                                                <a class="ambari text-success link" href="#" url="${monitorRecursos}"><i class="fa fa-arrow-circle-o-right"></i> Monitor de recursos</a>
                                             </li>
                                             <li>
-                                                <a class="ambari text-success link" href="#" url="${cargaRecursos}">Carga de recursos</a>
+                                                <a class="ambari text-success link" href="#" url="${cargaRecursos}"><i class="fa fa-arrow-circle-o-right"></i> Carga de recursos</a>
                                             </li>
                                         </ul>
                                         <!-- /.nav-third-level -->
                                     </li>
                                     <li>
-                                        <a class="text-success" href="#"><i class="glyphicon glyphicon-eye-open "></i> Monitoreo de servicios<span class="fa arrow"></span></a>
+                                        <a class="text-success" href="#"><i class="fa fa-puzzle-piece"></i> Servicios <span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="ambari text-success link" href="#" url="${monitorServicios}">Monitor de servicios</a>
+                                                <a class="ambari text-success link" href="#" url="${monitorServicios}"><i class="fa fa-arrow-circle-o-right"></i> Monitor de servicios</a>
                                             </li>
                                             <li>
-                                                <a class="ambari text-success link" href="#" url="${monitorTareas}">Monitor de tareas</a>
+                                                <a class="ambari text-success link" href="#" url="${monitorTareas}"><i class="fa fa-arrow-circle-o-right"></i> Monitor de tareas</a>
                                             </li>
                                             <li>
-                                                <a class="ambari text-success link" href="#" url="${monitorHosts}">Monitor de hosts</a>
+                                                <a class="ambari text-success link" href="#" url="${monitorHosts}"><i class="fa fa-arrow-circle-o-right"></i> Monitor de hosts</a>
                                             </li>
                                         </ul>
                                         <!-- /.nav-third-level -->
                                     </li>
                                     <li>
-                                        <a class="ambari text-success link" href="#" url="${administradoresCluster}">Administradores de clúster</a>
+                                        <a class="ambari text-success link" href="#" url="${administradoresCluster}"><i class="fa fa-users"></i> Administradores de clúster</a>
                                     </li>
                                 </ul>
                             </li><!--Cluster-->
@@ -324,13 +325,13 @@
                                 <a class="text-success" href="#"><i class="fa fa-database fa-fw"></i> Bases de datos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="text-success" href="#"><i class="glyphicon glyphicon-share fa-fw"></i> Crear base de datos<span class="fa arrow"></span></a>
+                                        <a class="text-success" href="#"><i class="fa fa-plus fa-fw"></i> Crear base de datos<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="hue text-success link" href="#" url="${crearTabla}">Crear tabla</a>
+                                                <a class="hue text-success link" href="#" url="${crearTabla}"><i class="fa fa-arrow-circle-o-right"></i> Crear tabla</a>
                                             </li>
                                             <li>
-                                                <a class="hue text-success link" href="#" url="${crearBaseDatos}">Crear base de datos</a>
+                                                <a class="hue text-success link" href="#" url="${crearBaseDatos}"><i class="fa fa-arrow-circle-o-right"></i> Crear base de datos</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -338,25 +339,25 @@
                                         <a class="text-success" href="#"><i class="glyphicon glyphicon-eye-open"></i> Consultar base de datos<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="hue text-success link" href="#" url="${crearConsulta}">Crear consulta</a>
+                                                <a class="hue text-success link" href="#" url="${crearConsulta}"><i class="fa fa-arrow-circle-o-right"></i> Crear consulta</a>
                                             </li>
                                             <li>
-                                                <a class="hue text-success link" href="#" url="${misConsultas}">Mis consultas</a>
+                                                <a class="hue text-success link" href="#" url="${misConsultas}"><i class="fa fa-arrow-circle-o-right"></i> Mis consultas</a>
                                             </li>
                                             <li>
-                                                <a class="hue text-success link" href="#" url="${listaConsultas}">Lista de consultas</a>
+                                                <a class="hue text-success link" href="#" url="${listaConsultas}"><i class="fa fa-arrow-circle-o-right"></i> Lista de consultas</a>
                                             </li>
                                             <li>
-                                                <a class="hue text-success link" href="#" url="${historialConsultas}">Historial de consultas</a>
+                                                <a class="hue text-success link" href="#" url="${historialConsultas}"><i class="fa fa-arrow-circle-o-right"></i> Historial de consultas</a>
                                             </li>
                                         </ul>
                                         <!-- /.nav-third-level -->
                                     </li>
                                     <li>
-                                        <a class="hue text-success link" href="#" url="${verTablas}">Ver tablas</a>
+                                        <a class="hue text-success link" href="#" url="${verTablas}"><i class="fa fa-table"></i> Ver tablas</a>
                                     </li>
                                     <li>
-                                        <a class="hue text-success link" href="#" url="${verBaseDatos}">Ver Base de datos</a>
+                                        <a class="hue text-success link" href="#" url="${verBaseDatos}"><i class="fa fa-database"></i> Ver Base de datos</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -430,7 +431,7 @@
                                 <!-- /.nav-second-level -->
                             </li><!--Administrador de trabajos-->
                             <li class="">
-                                <a class="text-success" href="#"><i class="fa fa-users fa-fw"></i> Administradores<span class="fa arrow"></span></a>
+                                <a class="text-success" href="#"><i class="fa fa-users fa-fw"></i> Administradores <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a class="text-success" href="#">Monitoreo ambari</a>
@@ -477,7 +478,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="" style=" padding: 0;margin-left: -2.5%;margin-top: -43px;  height: 100%; width: 107.5%;">
-                            <iframe id="iframe" src="http://www.labsol.org.mx/" scrolling="yes" frameborder="0" 
+                            <iframe id="iframe" src="${monitorRecursos}" scrolling="yes" frameborder="0" 
                                     style="height: 100%; width: 100%; overflow: hidden;">
                             <h1 class="">Tu navegador no soporta IFrames</h1>
                             </iframe>
