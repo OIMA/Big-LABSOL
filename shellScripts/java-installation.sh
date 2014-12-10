@@ -47,6 +47,5 @@ if [[ "$_java" ]]; then
 	    
 	else
 	    echo Script not Working
-	
     fi
 fi
