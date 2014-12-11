@@ -7,4 +7,4 @@ sudo wget -nv http://public-repo-1.hortonworks.com/HDP/centos5/2.x/updates/2.1.7
 
 yum repolist
 
-exit 0
+#exit 0
