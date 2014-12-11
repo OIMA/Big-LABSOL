@@ -28,8 +28,9 @@
         <link href="css/sb-admin-2.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/BIG_DATA_DASHBOARD/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!--<link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+        <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -366,35 +367,35 @@
                                 <a class="text-success" href="#"><i class="fa fa-bullseye"></i> Rutinas de oozie<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="hue text-success link" href="#" url="${monitorRutinas}">Monitor de rutinas</a>
+                                        <a class="hue text-success link" href="#" url="${monitorRutinas}"><i class="fa fa-line-chart"></i> Monitor de rutinas</a>
                                     </li>
                                     <li>
-                                        <a class="text-success" href="#"><i class="glyphicon glyphicon-share fa-fw"></i> Administrador de rutinas<span class="fa arrow"></span></a>
+                                        <a class="text-success" href="#"><i class="fa fa-list-ul"></i> Administrador de rutinas<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="hue text-success link" href="#">Ver rutinas</a>
+                                                <a class="hue text-success link" href="#"><i class="fa fa-arrow-circle-o-right"></i> Ver rutinas</a>
                                             </li>
                                             <li>
-                                                <a class="hue text-success link" href="#">Crear rutina</a>
+                                                <a class="hue text-success link" href="#"><i class="fa fa-arrow-circle-o-right"></i> Crear rutina</a>
                                             </li>
                                             <li>
-                                                <a class="hue text-success link" href="#">Importar rutina</a>
+                                                <a class="hue text-success link" href="#"><i class="fa fa-arrow-circle-o-right"></i> Importar rutina</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a class="text-success" href="#"><i class="glyphicon glyphicon-share fa-fw"></i> Coordinaci&oacute;n de rutinas<span class="fa arrow"></span></a>
+                                        <a class="text-success" href="#"><i class="fa fa-edit"></i> Coordinaci&oacute;n de rutinas<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="hue text-success link" href="#" url="${verCoordinadores}">Ver coordinadores</a>
+                                                <a class="hue text-success link" href="#" url="${verCoordinadores}"><i class="fa fa-arrow-circle-o-right"></i> Ver coordinadores</a>
                                             </li>
                                             <li>
-                                                <a class="hue text-success link" href="#" url="${crearCoordinadores}">Crear coordinador</a>
+                                                <a class="hue text-success link" href="#" url="${crearCoordinadores}"><i class="fa fa-arrow-circle-o-right"></i> Crear coordinador</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a class="hue text-success link" href="#" url="${enlazadorRutinas}">Enlazador de rutinas</a>
+                                        <a class="hue text-success link" href="#" url="${enlazadorRutinas}"><i class="fa fa-link"></i> Enlazador de rutinas</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -422,10 +423,10 @@
                                 <a class="text-success" href="#"><i class="fa fa-spinner fa-fw"></i> Administrador de trabajos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="text-success" href="#"> Monitor de trabajos</a>
+                                        <a class="text-success" href="#"><i class="fa fa-gears"></i> Monitor de trabajos</a>
                                     </li>
                                     <li>
-                                        <a class="text-success " href="#" > Crear trabajos</a>
+                                        <a class="text-success " href="#" ><i class="fa fa-wrench"></i> Crear trabajos</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -434,10 +435,10 @@
                                 <a class="text-success" href="#"><i class="fa fa-users fa-fw"></i> Administradores <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="text-success" href="#">Monitoreo ambari</a>
+                                        <a class="text-success" href="#"><i class="fa fa-user"></i> Ambari</a>
                                     </li>
                                     <li>
-                                        <a class="text-success " href="#" >Administración Hue</a>
+                                        <a class="text-success " href="#" ><i class="fa fa-user"></i> Hue</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -446,10 +447,10 @@
                                 <a class="text-success" href="#"><i class="fa fa-gears fa-fw"></i> Configuraci&oacute;n<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="text-success" href="#">Configuraci&oacute;n de servicios</a>
+                                        <a class="text-success" href="#"><i class="fa fa-puzzle-piece"></i> Configuraci&oacute;n de servicios</a>
                                     </li>
                                     <li>
-                                        <a class="text-success " href="#" >Configuraci&oacute;n pendiente</a>
+                                        <a class="text-success " href="#" ><i class="fa fa-warning"></i> Configuraci&oacute;n pendiente</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -458,10 +459,10 @@
                                 <a class="text-success" href="#"><i class="fa fa-files-o fa-fw"></i> Logs<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="" href="#">Logs del servidor</a>
+                                        <a class="text-success" href="#"><i class="fa fa-building-o"></i> Logs del servidor</a>
                                     </li>
                                     <li>
-                                        <a class="text-success " href="#" >Configuraci&oacute;n pendiente</a>
+                                        <a class="text-success " href="#" ><i class="fa fa-warning"></i> Configuraci&oacute;n pendiente</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

@@ -5,7 +5,8 @@ $(document).ready(function () {
 });
 
 $(".link").click(function () {
-    var classList = $(this).attr('class').split(/\s+/);
+    var classes = $(this).attr('class');
+    var classList = classes.split(/\s+/);
     $.each(classList, function (i, v) {
         console.log(v);
         if (v === 'ambari') {
@@ -17,6 +18,13 @@ $(".link").click(function () {
     var url = $(this).attr('url');
     reloadFrame(url);
 });
+
+$("a").click(function () {
+    $("a").removeClass("active");
+    $(this).addClass("active");
+//    alert($(this).attr("class"));
+}
+);
 
 function reloadFrame(address) {
     $("#iframe").attr("src", address);
