@@ -47,18 +47,17 @@ if [[ "$_java" ]]; then
 
 	sudo mkdir /usr/java
 
-	export RESURCES=$(pwd)
-	cd $RESURCES
-	cd ..
-	sudo cp -v resources/jdk-7u71-linux-x64.tar.gz /usr/java
-	sudo tar xzvf /usr/java/jdk-7u71-linux-x64.tar.gz
-	sudo ln -s /usr/java/jdk1.7.0_71 /usr/java/default
-	export JAVA_HOME=/usr/java/default
-        echo $JAVA_HOME
-	export PATH=$JAVA_HOME/bin:$PATH
-        echo $PATH
+	export RESUORCES=$(pwd)
+    	cd $RESUORCES
+    	cd ..
+    	sudo cp -v resources/jdk-7u71-linux-x64.tar.gz /usr/java
+    	sudo tar -xzvf /usr/java/jdk-7u71-linux-x64.tar.gz
+    	sudo mv jdk1.7.0_71 /usr/java
+    	sudo ln -s /usr/java/jdk1.7.0_71 /usr/java/default
+    	export JAVA_HOME=/usr/java/default
+    	echo $JAVA_HOME
+    	export PATH=$JAVA_HOME/bin:$PATH
 	
-
     fi
 
 fi
