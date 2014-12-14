@@ -1,5 +1,7 @@
 #!bin/bash
 
+#Needs to be runned whit source
+
 #This will check if any JDK is installed
 
 if hash java 2>/dev/null; then
@@ -31,6 +33,9 @@ else
     export JAVA_HOME=/usr/java/default
     echo $JAVA_HOME
     export PATH=$JAVA_HOME/bin:$PATH
+    echo "export PATH=$PATH" >> ~/.bash_profile
+    echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bash_profile
+
     
 fi
 
@@ -57,6 +62,8 @@ if [[ "$_java" ]]; then
     	export JAVA_HOME=/usr/java/default
     	echo $JAVA_HOME
     	export PATH=$JAVA_HOME/bin:$PATH
+        echo "export PATH=$PATH" >> ~/.bash_profile
+        echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bash_profile
 	
     fi
 
