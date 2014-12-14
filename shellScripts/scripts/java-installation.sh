@@ -1,12 +1,11 @@
 #!bin/bash
-export JAVA_LINK="http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.tar.gz"
-export JAVA
 
 #This will check if any JDK is installed
 
-if java; then
+if hash java 2>/dev/null; then
     echo found java executable in PATH
     _java=java
+
 
 elif [[ -n "$JAVA_HOME" ]] && [[ -x "$JAVA_HOME/bin/java" ]];  then
     echo found java executable in JAVA_HOME
@@ -22,13 +21,15 @@ else
 	sudo mkdir /usr/java
     fi
 
-    export RESURCES=$(pwd)
-    cd &RESURCES
+    export RESUORCES=$(pwd)
+    cd $RESUORCES
     cd ..
     sudo cp -v resources/jdk-7u71-linux-x64.tar.gz /usr/java
     sudo tar -xzvf /usr/java/jdk-7u71-linux-x64.tar.gz
+    sudo mv jdk1.7.0_71 /usr/java
     sudo ln -s /usr/java/jdk1.7.0_71 /usr/java/default
     export JAVA_HOME=/usr/java/default
+    echo $JAVA_HOME
     export PATH=$JAVA_HOME/bin:$PATH
     
 fi
@@ -40,32 +41,24 @@ if [[ "$_java" ]]; then
 	echo Done
     else
 
-	yum remove {java-1*}
+	yum remove {java-1.*}
 
-	if [ -d /usr/java ]; then
+	sudo find / -name java -exec rm -rf {} \;
 
-	    echo Found directory
-	    sudo rm -rf /usr/java
-	    sudo rm -rf /usr/bin/java
-	    sudo mkdir /usr/java
-	    
-	else
-	    sudo mkdir /usr/java
-	fi
+	sudo mkdir /usr/java
 
 	export RESURCES=$(pwd)
-	cd &RESURCES
+	cd $RESURCES
 	cd ..
 	sudo cp -v resources/jdk-7u71-linux-x64.tar.gz /usr/java
-	sudo tar -xzvf /usr/java/jdk-7u71-linux-x64.tar.gz
+	sudo tar xzvf /usr/java/jdk-7u71-linux-x64.tar.gz
 	sudo ln -s /usr/java/jdk1.7.0_71 /usr/java/default
 	export JAVA_HOME=/usr/java/default
+        echo $JAVA_HOME
 	export PATH=$JAVA_HOME/bin:$PATH
+        echo $PATH
 	
 
     fi
 
 fi
-	
-	   
-exit 0
