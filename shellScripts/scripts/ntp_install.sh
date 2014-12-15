@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f /etc/init.d/ntpd ]
+if [ -f /etc/init.d/ntpd ]; then
    
    #Enable the service
    sudo chkconfig ntpd on
