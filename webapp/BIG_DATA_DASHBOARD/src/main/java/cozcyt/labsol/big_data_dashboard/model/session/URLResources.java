@@ -15,14 +15,14 @@ public class URLResources extends ServerConfiguration {
     private final String direccionHue = ipHue + ":" + puertoHue + "/";
     private final String direccionServidor = ipServer + ":" + puertoServer + "/";
 
-    public String monitorRecursos = direccionAmbari + "#/main/dashboard";
-    public String cargaRecursos = direccionAmbari + "#/main/charts";
-    public String monitorServicios = direccionAmbari + "#/main/services";
-    public String monitorTareas = direccionAmbari + "#/main/jobs";
-    public String monitorHosts = direccionAmbari + "#/main/hosts";
-    public String administradoresCluster = direccionAmbari + "#/main/admin";
+    public String monitorRecursos = direccionAmbari + "";
+    public String cargaRecursos = direccionAmbari + "";
+    public String monitorServicios = direccionAmbari + "";
+    public String monitorTareas = direccionAmbari + "";
+    public String monitorHosts = direccionAmbari + "";
+    public String administradoresCluster = direccionAmbari + "";
 
-    public String adminAmbari = direccionAmbari + "#/main/admin";
+    public String adminAmbari = direccionAmbari + "";
     public String adminHue = direccionHue + "useradmin";
 
     public String crearTabla = direccionHue + "hcatalog/tables";
