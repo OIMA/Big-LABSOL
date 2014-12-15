@@ -3,7 +3,7 @@
 if [ -f /etc/init.d/mysqld ]; then
     
     #Start the Intance of my MySQL
-    /etc/init.d/mysqld start
+    sudo /etc/init.d/mysqld start
 
     #Set the root user and the corresponding PassWord
     echo "Starting mySql, type a password for root, then [ENTER]: "
@@ -18,12 +18,12 @@ if [ -f /etc/init.d/mysqld ]; then
     read dbuser
 
     echo "Insert his password and press [ENTER]: "
-    read dbuserpass
+    read -s dbuserPass
 
     echo "Insert local Host, the press [ENTER]: "
     read localhost
     
-    sudo mysql -u root < MySqlCommands
+    sudo mysql -u root -p$PASSWORD -Bse "CREATE USER '$dbuser'@'$localhost' IDENTIFIED BY '$dbuserPass';GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'$localhost';CREATE USER '$dbuser'@'%' IDENTIFIED BY '$dbuserpass';GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%';FLUSH PRIVILEGES;GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'$localhost' WITH GRANT OPTION;GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%' WITH GRANT OPTION;" 
 
     #Reconnect the database using the dbuser
     sudo mysql -u $dbuser -p$dbuser
