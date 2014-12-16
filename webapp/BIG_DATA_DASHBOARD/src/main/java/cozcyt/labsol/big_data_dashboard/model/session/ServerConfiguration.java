@@ -10,7 +10,7 @@ package cozcyt.labsol.big_data_dashboard.model.session;
  * @author oima
  */
 public class ServerConfiguration {
-    public String ipAmbari = "http://192.168.4.115";
+    public String ipAmbari = "http://192.168.4.124";
     public String puertoAmbari = "8080";
     
     public String ipServer = "http://192.168.4.158";

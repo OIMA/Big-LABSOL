@@ -59,6 +59,10 @@ public class DashboardLinker {
         
         model.addAttribute("monitorTrabajos", urlr.monitorTrabajos);
         model.addAttribute("crearTrabajo", urlr.crearTrabajo);
+        
+        
+        model.addAttribute("adminAmbari", urlr.adminAmbari);
+        model.addAttribute("adminHue", urlr.adminHue);
         return "/DashBoard";
     }
 

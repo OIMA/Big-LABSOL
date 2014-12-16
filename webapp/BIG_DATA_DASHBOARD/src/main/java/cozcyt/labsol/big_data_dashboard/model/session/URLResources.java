@@ -15,14 +15,14 @@ public class URLResources extends ServerConfiguration {
     private final String direccionHue = ipHue + ":" + puertoHue + "/";
     private final String direccionServidor = ipServer + ":" + puertoServer + "/";
 
-    public String monitorRecursos = direccionAmbari + "";
-    public String cargaRecursos = direccionAmbari + "";
-    public String monitorServicios = direccionAmbari + "";
-    public String monitorTareas = direccionAmbari + "";
-    public String monitorHosts = direccionAmbari + "";
-    public String administradoresCluster = direccionAmbari + "";
+    public String monitorRecursos = direccionAmbari + "#/main/dashboard";
+    public String cargaRecursos = direccionAmbari + "#/main/charts";
+    public String monitorServicios = direccionAmbari + "#/main/services";
+    public String monitorTareas = direccionAmbari + "#/main/jobs";
+    public String monitorHosts = direccionAmbari + "#/main/hosts";
+    public String administradoresCluster = direccionAmbari + "#/main/admin";
 
-    public String adminAmbari = direccionAmbari + "";
+    public String adminAmbari = direccionAmbari + "#/main/admin";
     public String adminHue = direccionHue + "useradmin";
 
     public String crearTabla = direccionHue + "hcatalog/tables";
@@ -44,7 +44,7 @@ public class URLResources extends ServerConfiguration {
     public String shellHBase = direccionHue + "shell/create?keyName=hbase";
     public String shellBash = direccionHue + "shell/create?keyName=bash";
 
-    public String administradorArchivos = direccionHue + "filebrowser";
+    public String administradorArchivos = direccionHue + "filebrowser/";
     
     public String monitorTrabajos = direccionHue + "jobbrowser";
     public String crearTrabajo = direccionHue + "jobsub";

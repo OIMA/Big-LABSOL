@@ -404,29 +404,29 @@
                                 <a class="text-success" href="#"><i class="fa fa-terminal fa-fw"></i> Shell<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="hue text-success link" href="#" url="${monitorTareas}">Pig</a>
+                                        <a class="hue text-success link" href="#" url="${shellPig}">Pig</a>
                                     </li>
                                     <li>
-                                        <a class="text-success " href="#" >HBase</a>
+                                        <a class="text-success link" href="#" url="${shellHBase}">HBase</a>
                                     </li>
                                     <li>
-                                        <a class="text-success " href="#" >bash</a>
+                                        <a class="text-success link" href="#" url="${shellBash}">bash</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li><!--Shell-->
 
                             <li class="">
-                                <a class="text-success" href="#"><i class="fa fa-archive fa-fw"></i> Administrador de archivos</a>
+                                <a class="text-success link" href="#" url="${administradorArchivos}"><i class="fa fa-archive fa-fw"></i> Administrador de archivos</a>
                             </li><!--Administrador de archivos-->
                             <li class="">
                                 <a class="text-success" href="#"><i class="fa fa-spinner fa-fw"></i> Administrador de trabajos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="text-success" href="#"><i class="fa fa-gears"></i> Monitor de trabajos</a>
+                                        <a class="text-success link" href="#" url="${monitorTrabajos}"><i class="fa fa-gears"></i> Monitor de trabajos</a>
                                     </li>
                                     <li>
-                                        <a class="text-success " href="#" ><i class="fa fa-wrench"></i> Crear trabajos</a>
+                                        <a class="text-success link" href="#" url="${crearTrabajo}"><i class="fa fa-wrench"></i> Crear trabajos</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -435,10 +435,10 @@
                                 <a class="text-success" href="#"><i class="fa fa-users fa-fw"></i> Administradores <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="text-success" href="#"><i class="fa fa-user"></i> Ambari</a>
+                                        <a class="text-success link" href="#" url="${adminAmbari}"><i class="fa fa-user"></i> Ambari</a>
                                     </li>
                                     <li>
-                                        <a class="text-success " href="#" ><i class="fa fa-user"></i> Hue</a>
+                                        <a class="text-success link" href="#" url="${adminHue}"><i class="fa fa-user"></i> Hue</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
