@@ -7,7 +7,7 @@ repet(DOCUMENT){
     echo This correct? S/N
     read AN
 
-    if [ $AN = S]
+    if [ $AN = S]; then
        ./$0
        exit 0
     fi

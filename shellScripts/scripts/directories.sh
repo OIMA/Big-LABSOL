@@ -14,10 +14,41 @@
 #
 
 # Space separated list of directories where NameNode will store file system image. For example, /grid/hadoop/hdfs/nn /grid1/hadoop/hdfs/nn
-DFS_NAME_DIR="TODO-LIST-OF-NAMENODE-DIRS";
+
+echo "How many directories to store files you want? "
+read N
+
+DFS_NAME_DIR="";
+declare -i LAST=0
+
+while [ ! $LAST = $N ]
+do
+    if [ $LAST = 0 ]; then
+	DFS_NAME_DIR=/grid/hadoop/hdfs/nn;
+    else
+	DFS_NAME_DIR="$DFS_NAME_DIR /grid$LAST/hadoop/hdfs/nn";
+    fi
+    LAST=$(( $LAST + 1 ))
+done
 
 # Space separated list of directories where DataNodes will store the blocks. For example, /grid/hadoop/hdfs/dn /grid1/hadoop/hdfs/dn /grid2/hadoop/hdfs/dn
-DFS_DATA_DIR="TODO-LIST-OF-DATA-DIRS";
+DFS_DATA_DIR="";
+
+echo "How many directories will DataNodes will use to store the blocks you want? "
+read N
+
+declare -i LAST=0
+
+while [ ! $LAST = $N ]
+do
+    if [ $LAST = 0 ]; then
+	DFS_NAME_DIR=/grid/hadoop/hdfs/dn;
+    else
+	DFS_NAME_DIR="$DFS_NAME_DIR /grid$LAST/hadoop/hdfs/dn";
+    fi
+    LAST=$(( $LAST + 1 ))
+done
+
 
 # Space separated list of directories where SecondaryNameNode will store checkpoint image. For example, /grid/hadoop/hdfs/snn /grid1/hadoop/hdfs/snn /grid2/hadoop/hdfs/snn
 FS_CHECKPOINT_DIR="TODO-LIST-OF-SECONDARY-NAMENODE-DIRS";
