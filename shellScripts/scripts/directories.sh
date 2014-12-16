@@ -34,24 +34,39 @@ done
 # Space separated list of directories where DataNodes will store the blocks. For example, /grid/hadoop/hdfs/dn /grid1/hadoop/hdfs/dn /grid2/hadoop/hdfs/dn
 DFS_DATA_DIR="";
 
-echo "How many directories will DataNodes will use to store the blocks you want? "
+echo "How many directories will DataNodes use to store the blocks? "
 read N
 
-declare -i LAST=0
+LAST=0
 
 while [ ! $LAST = $N ]
 do
     if [ $LAST = 0 ]; then
-	DFS_NAME_DIR=/grid/hadoop/hdfs/dn;
+	DFS_DATA_DIR=/grid/hadoop/hdfs/dn;
     else
-	DFS_NAME_DIR="$DFS_NAME_DIR /grid$LAST/hadoop/hdfs/dn";
+	DFS_DATA_DIR="$DFS_DATA_DIR /grid$LAST/hadoop/hdfs/dn";
     fi
     LAST=$(( $LAST + 1 ))
 done
 
 
 # Space separated list of directories where SecondaryNameNode will store checkpoint image. For example, /grid/hadoop/hdfs/snn /grid1/hadoop/hdfs/snn /grid2/hadoop/hdfs/snn
-FS_CHECKPOINT_DIR="TODO-LIST-OF-SECONDARY-NAMENODE-DIRS";
+FS_CHECKPOINT_DIR="";
+
+echo "How many directories will the SecondaryNameNode use to store the checkpoints images? "
+read N
+
+LAST=0
+
+while [ ! $LAST = $N ]
+do
+    if [ $LAST = 0 ]; then
+	FS_CHECKPOINT_DIR=/grid/hadoop/hdfs/snn;
+    else
+	FS_CHECKPOINT_DIR="$FS_CHECKPOINT_DIR /grid$LAST/hadoop/hdfs/snn";
+    fi
+    LAST=$(( $LAST + 1 ))
+done
 
 
 
@@ -69,13 +84,43 @@ HADOOP_CONF_DIR="/etc/hadoop/conf";
 #
 
 # Space separated list of directories where YARN will store temporary data. For example, /grid/hadoop/yarn/local /grid1/hadoop/yarn/local /grid2/hadoop/yarn/local
-YARN_LOCAL_DIR="TODO-LIST-OF-YARN-LOCAL-DIRS";
+YARN_LOCAL_DIR="";
+
+echo "How many directories will YARN use to store temporary data? "
+read N
+
+LAST=0
+
+while [ ! $LAST = $N ]
+do
+    if [ $LAST = 0 ]; then
+	YARN_LOCAL_DIR=/grid/hadoop/yarn/local;
+    else
+	YARN_LOCAL_DIR="$YARN_LOCAL_DIR /grid$LAST/hadoop/yarn/local";
+    fi
+    LAST=$(( $LAST + 1 ))
+done
 
 # Directory to store the YARN logs.
 YARN_LOG_DIR="/var/log/hadoop/yarn"; 
 
 # Space separated list of directories where YARN will store container log data. For example, /grid/hadoop/yarn/logs /grid1/hadoop/yarn/logs /grid2/hadoop/yarn/logs
-YARN_LOCAL_LOG_DIR="TODO-LIST-OF-YARN-LOCAL-LOG-DIRS";
+YARN_LOCAL_LOG_DIR="";
+
+echo "How many directories will YARN use to store container log data? "
+read N
+
+LAST=0
+
+while [ ! $LAST = $N ]
+do
+    if [ $LAST = 0 ]; then
+	YARN_LOCAL_LOG_DIR=/grid/hadoop/yarn/logs;
+    else
+	YARN_LOCAL_LOG_DIR="$YARN_LOCAL_LOG_DIR /grid$LAST/hadoop/yarn/logs";
+    fi
+    LAST=$(( $LAST + 1 ))
+done
 
 # Directory to store the YARN process ID.
 YARN_PID_DIR="/var/run/hadoop/yarn";
@@ -134,7 +179,23 @@ HBASE_PID_DIR="/var/run/hbase";
 #
 
 # Directory where ZooKeeper will store data. For example, /grid1/hadoop/zookeeper/data
-ZOOKEEPER_DATA_DIR="TODO-ZOOKEEPER-DATA-DIR";
+ZOOKEEPER_DATA_DIR="";
+
+echo "How many directories will ZooKeeper use to store data? "
+read N
+
+LAST=0
+
+while [ ! $LAST = $N ]
+do
+    if [ $LAST = 0 ]; then
+	ZOOKEEPER_DATA_DIR=/grid/hadoop/zookeeper/data;
+    else
+	ZOOKEEPER_DATA_DIR="$ZOOKEEPER_DATA_DIR /grid$LAST/hadoop/zookeeper/data";
+    fi
+    LAST=$(( $LAST + 1 ))
+done
+
 
 # Directory to store the ZooKeeper configuration files.
 ZOOKEEPER_CONF_DIR="/etc/zookeeper/conf";
