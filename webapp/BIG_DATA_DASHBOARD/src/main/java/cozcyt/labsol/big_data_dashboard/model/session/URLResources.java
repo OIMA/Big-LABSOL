@@ -49,6 +49,11 @@ public class URLResources extends ServerConfiguration {
     public String monitorTrabajos = direccionHue + "jobbrowser";
     public String crearTrabajo = direccionHue + "jobsub";
 
+    public String pigScripts = direccionHue + "pig";
+    public String configuracionServicios = direccionHue + "dump_config";
+    public String configuracionPendiente = direccionHue + "debug/check_config";
+    public String logs = direccionHue + "logs";
+//    public String configuracionPendiente = direccionHue + "debug/check_config";
     
     public String perfilHue = direccionHue + "useradmin/users/edit";
     public String cerrarSesionHue = direccionHue + "accounts/logout";

@@ -373,13 +373,13 @@
                                         <a class="text-success" href="#"><i class="fa fa-list-ul"></i> Administrador de rutinas<span class="fa arrow"></span></a>
                                         <ul class="nav nav-third-level">
                                             <li>
-                                                <a class="hue text-success link" href="#"><i class="fa fa-arrow-circle-o-right"></i> Ver rutinas</a>
+                                                <a class="hue text-success link" href="#" url="${verRutina}"><i class="fa fa-arrow-circle-o-right"></i> Ver rutinas</a>
                                             </li>
                                             <li>
-                                                <a class="hue text-success link" href="#"><i class="fa fa-arrow-circle-o-right"></i> Crear rutina</a>
+                                                <a class="hue text-success link" href="#" url="${crearRutina}"><i class="fa fa-arrow-circle-o-right"></i> Crear rutina</a>
                                             </li>
                                             <li>
-                                                <a class="hue text-success link" href="#"><i class="fa fa-arrow-circle-o-right"></i> Importar rutina</a>
+                                                <a class="hue text-success link" href="#" url="${importarRutina}"><i class="fa fa-arrow-circle-o-right"></i> Importar rutina</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -415,7 +415,9 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li><!--Shell-->
-
+                            <li class="">
+                                <a class="text-success link" href="#" url="${pigScripts}"><i class="fa fa-file-code-o fa-fw"></i> Scripts</a>
+                            </li><!--Scripts-->
                             <li class="">
                                 <a class="text-success link" href="#" url="${administradorArchivos}"><i class="fa fa-archive fa-fw"></i> Administrador de archivos</a>
                             </li><!--Administrador de archivos-->
@@ -447,10 +449,10 @@
                                 <a class="text-success" href="#"><i class="fa fa-gears fa-fw"></i> Configuraci&oacute;n<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="text-success" href="#"><i class="fa fa-puzzle-piece"></i> Configuraci&oacute;n de servicios</a>
+                                        <a class="text-success link" href="#" url="${configuracionServicios}"><i class="fa fa-puzzle-piece"></i> Configuraci&oacute;n de servicios</a>
                                     </li>
                                     <li>
-                                        <a class="text-success " href="#" ><i class="fa fa-warning"></i> Configuraci&oacute;n pendiente</a>
+                                        <a class="text-success link" href="#" url="${configuracionPendiente}"><i class="fa fa-warning"></i> Configuraci&oacute;n pendiente</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -459,10 +461,7 @@
                                 <a class="text-success" href="#"><i class="fa fa-files-o fa-fw"></i> Logs<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a class="text-success" href="#"><i class="fa fa-building-o"></i> Logs del servidor</a>
-                                    </li>
-                                    <li>
-                                        <a class="text-success " href="#" ><i class="fa fa-warning"></i> Configuraci&oacute;n pendiente</a>
+                                        <a class="text-success link" href="#" url="${logs}"><i class="fa fa-building-o"></i> Logs del servidor</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

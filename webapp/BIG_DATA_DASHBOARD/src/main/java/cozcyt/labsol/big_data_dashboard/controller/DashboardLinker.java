@@ -63,6 +63,9 @@ public class DashboardLinker {
         
         model.addAttribute("adminAmbari", urlr.adminAmbari);
         model.addAttribute("adminHue", urlr.adminHue);
+        
+        model.addAttribute("pigScripts", urlr.pigScripts);
+        model.addAttribute("logs", urlr.logs);
         return "/DashBoard";
     }
 
