@@ -1,5 +1,7 @@
 #!bin/bash
 
+#Status: Ok
+
 #Needs to be runned whit source
 
 #This will check if any JDK is installed

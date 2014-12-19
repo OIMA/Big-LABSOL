@@ -1,5 +1,7 @@
 #!bin/bash
 
+#Status: Testing
+
 sudo cat directories.sh >> ~/.bash_profile
 sudo cat usersAndGroups.sh >> ~/.bash_profile
 

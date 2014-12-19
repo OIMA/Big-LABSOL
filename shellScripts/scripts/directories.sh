@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#Status: Development
+
 #
 # Directories Script
 #

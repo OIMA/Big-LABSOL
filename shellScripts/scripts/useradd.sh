@@ -1,4 +1,7 @@
 #!bin/bash
+
+#Status: Testing
+
 USER=hadoop
 
 #Create user hadoop whit root privilegs
