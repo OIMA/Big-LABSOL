@@ -1,5 +1,7 @@
 #!bin/bash
 
+#Status: Testing
+
 repet(DOCUMENT){
 
     cat $DOCUMENT

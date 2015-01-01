@@ -1,5 +1,7 @@
 #!bin/bash
 
+#Status: Testing
+
 source ./usersAndGroups
 
 egrep -i "^$HADOOP_GROUP" /etc/group

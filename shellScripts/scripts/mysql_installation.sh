@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Status: Needs more testing
+
 if [ -f /etc/init.d/mysqld ]; then
     
     #Start the Intance of my MySQL
@@ -23,10 +25,10 @@ if [ -f /etc/init.d/mysqld ]; then
     echo "Insert local Host, the press [ENTER]: "
     read localhost
     
-    sudo mysql -u root -p$PASSWORD -Bse "CREATE USER '$dbuser'@'$localhost' IDENTIFIED BY '$dbuserPass';GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'$localhost';CREATE USER '$dbuser'@'%' IDENTIFIED BY '$dbuserpass';GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%';FLUSH PRIVILEGES;GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'$localhost' WITH GRANT OPTION;GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%' WITH GRANT OPTION;" 
+    sudo mysql -u root -p$PASSWORD -Bse "CREATE USER '$dbuser'@'$localhost' IDENTYFIED BY '$dbuserPass';GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'$localhost';CREATE USER '$dbuser'@'%' IDENTIFIED BY '$dbuserpass';GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%';FLUSH PRIVILEGES;GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'$localhost' WITH GRANT OPTION;GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%' WITH GRANT OPTION;" 
 
     #Reconnect the database using the dbuser
-    sudo mysql -u $dbuser -p$dbuser
+    sudo mysql -u $dbuser -p$dbuserPass
 
     #Install  MySQl conector to JAR
     sudo yum install mysql-connector-java*

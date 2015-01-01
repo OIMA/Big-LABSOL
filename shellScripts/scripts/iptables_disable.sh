@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Status: Ok
+
 #Disable iptables
 
 sudo chkconfig iptables off
