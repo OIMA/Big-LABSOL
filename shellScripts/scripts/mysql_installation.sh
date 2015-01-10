@@ -28,12 +28,19 @@ if [ -f /etc/init.d/mysqld ]; then
     sudo mysql -u root -p$PASSWORD -Bse "CREATE USER '$dbuser'@'$localhost' IDENTYFIED BY '$dbuserPass';GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'$localhost';CREATE USER '$dbuser'@'%' IDENTIFIED BY '$dbuserpass';GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%';FLUSH PRIVILEGES;GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'$localhost' WITH GRANT OPTION;GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%' WITH GRANT OPTION;" 
 
     #Reconnect the database using the dbuser
-    sudo mysql -u $dbuser -p$dbuserPass
+    sudo mysql -u $dbuser
 
     #Install  MySQl conector to JAR
     sudo yum install mysql-connector-java*
 
 else
     sudo yum install mysql-server
+    
+    if [ $? -eq 1 ]; then
+
+	wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+	sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+	
+    fi
     ./$0
 fi
