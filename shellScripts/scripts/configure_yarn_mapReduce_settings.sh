@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 #Status: Development
 
@@ -11,4 +11,14 @@ read MEMORY
 echo "How many disks the server have? "
 read DISK
 
-python hdp-configuration-utils.py -c $CORES -m $MEMORY -d $DISK -k True > recommended_configuration
+export RESOURCES=$(pwd)
+
+cd $RESOURCES
+
+cd ..
+
+export DIRECTORY=$(pwd)
+
+cd $RESOURCES
+
+python hdp-configuration-utils.py -c $CORES -m $MEMORY -d $DISK -k True > $DIRECTORY/resources/recommended_configuration
