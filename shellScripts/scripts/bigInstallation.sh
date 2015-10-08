@@ -17,6 +17,21 @@ export sqlDatabaseCommands="CREATE USER 'dbuser'@'$localhost' IDENTYFIED BY '$db
 
 export hortonWorksRepository=http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.2.6.0/hdp.repo
 export hortonWorksRepoDirectory=/etc/yum.repos.d/hdp.repo
+
+export usableMemory
+export coresNumber
+export disksNumber
+export isHbaseInstalled=False
+export cpuInfoDirectory=/proc/cpuinfo
+export memInfoDirectory=/proc/meminfo
+export KBTOGB=1048576
+export disksStatsDirectory=/proc/diskstats
+
+export FileDirLevelPerm=022
+export hadoopPackages=hadoop hadoop-hdfs hadoop-libhdfs hadoop-yarn hadoop-mapreduce hadoop-client openssl snappy snappy-devel lzo lzo-devel hadooplzo hadooplzo-native
+export ZOO_DATA_DIR_NUMBER=/grid/hadoop/zookeeper/data
+export ZOOKEEPER_CONF_DIR=/etc/zookeeper/conf
+
 # =============================================================================
 # Scripts Functions
 # =============================================================================
@@ -228,6 +243,7 @@ setDfsNameDir(){
 	fi
 	LAST=$(( $LAST + 1 ))
     done
+    echo '' >> directories.sh
     echo "DFS_NAME_DIR=$DFS_NAME_DIR" >> directories.sh
 }
 
@@ -252,6 +268,7 @@ setDfsDataDir(){
 	LAST=$(( $LAST + 1 ))
     done
 
+    echo '' >> directories.sh
     echo "DFS_DATA_DIR=$DFS_DATA_DIR" >> directories.sh
 }
 
@@ -276,6 +293,7 @@ setFsCheckpointDir(){
 	LAST=$(( $LAST + 1 ))
     done
 
+    echo '' >> directories.sh
     echo "FS_CHECKPOINT_DIR=$FS_CHECKPOINT_DIR" >> directories.sh
 }
 
@@ -298,7 +316,8 @@ setYarnLocalDir(){
 	fi
 	LAST=$(( $LAST + 1 ))
     done
-
+    
+    echo '' >> directories.sh
     echo "YARN_LOCAL_DIR=$YARN_LOCAL_DIR" >> directories.sh
 }
 
@@ -322,6 +341,7 @@ setYarnLocalLogDir(){
 	LAST=$(( $LAST + 1 ))
     done
 
+    echo '' >> directories.sh
     echo "YARN_LOCAL_LOG_DIR=$YARN_LOCAL_LOG_DIR" >> directories.sh
 }
 
@@ -345,6 +365,7 @@ setZookeperDataDir(){
 	LAST=$(( $LAST + 1 ))
     done
 
+    echo '' >> directories.sh
     echo "ZOOKEEPER_DATA_DIR=$ZOOKEEPER_DATA_DIR" >> directories.sh
 }
 
@@ -372,6 +393,244 @@ createUsersAndGroups(){
 	#Set a password for each user
 	passwd $var
     done
+}
+
+getProcessorCores(){
+    #Status: Ok
+    $coresNumber=$(cat /proc/cpuinfo | grep -m 1 '\<cpu cores' | awk '{ print $4 }' )
+}
+
+getUsableMemory(){
+    #Status: Ok
+    memoryKB=$(cat $memInfoDirectory | grep MemTotal | awk '{ print $2 }')
+    $usableMemory=$(( $memoryKB / $KBTOGB ))
+}
+
+getDisks(){
+    #Status: Ok
+    $disksNumber=$(cat $disksStatsDirectory | grep  -c "sd[a-z] ")
+}
+
+calculateHadoopCoreVariables(){
+    #Status: Testing
+    python yarn-utils.py -c $coresNumber -m $usableMemory -d $disksNumber -k $isHbaseInstalled > yarn-utils.log
+}
+
+setFileAndDirectoryPermissions(){
+    #Status: Testing
+    umask $FileDirLevelPerm
+}
+
+installingZookeeper(){
+    #Status: Testing
+    sudo yum install zookeeper
+}
+
+createZookeeperDirectories(){
+    #Status: Testing
+    echo '' >> ~/.bash_profile
+    cat zookeeper-env.sh >> ~/.bash_profile
+    
+    sudo mkdir -p $ZOO_LOG_DIR
+    sudo chown -R $ZOOKEEPER_USER:$HADOOP_GROUP $ZOO_LOG_DIR
+    sudo chmod -R 755 $ZOO_LOG_DIR
+    sudo mkdir -p $ZOOPIDFILE
+    sudo chown -R $ZOOKEEPER_USER:$HADOOP_GROUP $ZOOPIDFILE
+    sudo chmod -R 755 $ZOOPIDFILE
+    sudo mkdir -p $ZOO_DATA_DIR
+    sudo chmod -R 755 $ZOOKEEPER_DATA_DIR
+    sudo chown -R $ZOOKEEPER_USER:$HADOOP_GROUP $ZOOKEEPER_DATA_DIR
+}
+
+setNumberOfResourceManager(){
+    #Status: Testing
+    #Notes: The current version of this script only install zookeper on the resource manager server. So the culster will only have one server whit zookeper by default
+    echo "1" > $ZOO_DATA_DIR_NUMBER/myid 
+    
+}
+
+setZooCfg(){
+    #Status: Testing
+    #Note: Execute only on the resource manager
+    vi -c ":%s/TODO-ZOOKEEPER-DATA-DIR/$ZOOKEEPER_DATA_DIR/g" -c ":wq" zoo.cfg
+    vi -c ":%s/TODO-ZKSERVER-HOSTNAME/$localhost/g" -c ":wq" zoo.cfg
+}
+
+setHBaseZoo(){
+    #Status: Testing
+    #Note: Execute only on the resource manager
+    vi -c ":%s/TODO-ZOOKEEPER-HOST_NAME/$localhost/g" -c ":wq" configuration_files/hbase/hbase-site.xml
+
+}
+
+setConfigurationFiles(){
+    #Status: Testing
+    #Note: Needs script to send all configuration files to another servers
+    rm -r $ZOOKEEPER_CONF_DIR ;
+    mkdir -p $ZOOKEEPER_CONF_DIR ;
+##################################No terminado
+    chmod a+x $ZOOKEEPER_CONF_DIR/;
+    chown -R $ZOOKEEPER_USER: $HADOOP_GROUP $ZOOKEEPER_CONF_DIR/../;
+    chmod -R 755 $ZOOKEEPER_CONF_DIR/../
+}
+
+startZookeeper(){
+    #Status: Testing
+    su - zookeeper -c "export ZOOCFGDIR=/usr/hdp/current/zookeeper-server/conf ; export ZOOCFG=zoo.cfg; source /usr/hdp/current/zookeeper-server/conf/zookeeper-env.sh ; /usr/hdp/current/zookeeper-server/bin/zkServer.sh start"
+    /usr/hdp/current/hadoop-client/sbin/hadoop-daemon.sh start zkfc    
+}
+
+installHadoopPackages(){
+    #Status: Testing
+    sudo yum install $hadoopPackages
+}
+
+createNameNodeDirectories(){
+    #Status: Testing
+    #Note: Execute only over the name node
+
+    sudo mkdir -p $DFS_NAME_DIR;
+    sudo chown -R $HDFS_USER:$HADOOP_GROUP $DFS_NAME_DIR;
+    chmod -R 755 $DFS_NAME_DIR;
+}
+
+createSecundaryNameNodeDirectories(){
+    #Status: Testing
+    #Note: Execute only on the Secundary NameNode
+    sudo mkdir -p $FS_CHECKPOINT_DIR;
+    sudo chown -R $HDFS_USER:$HADOOP_GROUP $FS_CHECKPOINT_DIR;
+    chmod -R 755 $FS_CHECKPOINT_DIR;
+}
+
+createDataNodeDirectories(){
+    #Status: Testing
+    #Note: Execute only on the DataNode
+
+    sudo mkdir -p $DFS_DATA_DIR;
+    sudo chown -R $HDFS_USER:$HADOOP_GROUP $DFS_DATA_DIR;
+    chmod -R 750 $DFS_DATA_DIR;
+}
+
+createYarnDirectories(){
+    #Status: Testing
+    #Note: Execute only on DataNodes and NodeManager
+
+    sudo mkdir -p $YARN_LOCAL_DIR;
+    sudo chown -R $YARN_USER:$HADOOP_GROUP $YARN_LOCAL_DIR;
+    chmod -R 755 $YARN_LOCAL_DIR;
+    #For log directories
+    sudo mkdir -p $YARN_LOCAL_LOG_DIR;
+    sudo chown -R $YARN_USER:$HADOOP_GROUP $YARN_LOCAL_LOG_DIR;
+    chmod -R 755 $YARN_LOCAL_LOG_DIR;
+}
+
+createLogPidDirectories() {
+    #Status: Testing
+    #Note: Executo on all nodes
+    sudo mkdir -p $HDFS_LOG_DIR;
+    sudo chown -R $HDFS_USER:$HADOOP_GROUP $HDFS_LOG_DIR;
+    chmod -R 755 $HDFS_LOG_DIR;
+
+    #Yarn
+    sudo mkdir -p $YARN_LOG_DIR;
+    sudo chown -R $YARN_USER:$HADOOP_GROUP $YARN_LOG_DIR;
+    chmod -R 755 $YARN_LOG_DIR;
+
+    #HDFS
+    sudo mkdir -p $HDFS_PID_DIR;
+    sudo chown -R $HDFS_USER:$HADOOP_GROUP $HDFS_PID_DIR;
+    chmod -R 755 $HDFS_PID_DIR
+
+    #Yarn PID
+    sudo mkdir -p $YARN_PID_DIR;
+    sudo chown -R $YARN_USER:$HADOOP_GROUP $YARN_PID_DIR;
+    chmod -R 755 $YARN_PID_DIR;
+
+    #Mapred
+    sudo mkdir -p $MAPRED_LOG_DIR;
+    sudo chown -R $MAPRED_USER:$HADOOP_GROUP $MAPRED_LOG_DIR;
+    chmod -R 755 $MAPRED_LOG_DIR;
+
+    #Mapred PID
+    sudo mkdir -p $MAPRED_PID_DIR;
+    sudo chown -R $MAPRED_USER:$HADOOP_GROUP $MAPRED_PID_DIR;
+    chmod -R 755 $MAPRED_PID_DIR;
+}
+
+setHadoopYarnEnvVariables(){
+    #Status: Testing
+    . configuration_files/core_hadoop/hadoop-env.sh
+    echo '' >> ~/.bash_profile
+    cat configuration_files/core_hadoop/hadoop-env.sh >> ~/.bash_profile
+
+    . configuration_files/core_hadoop/yarn-env.sh
+    echo '' >> ~/.bash_profile
+    cat configuration_files/core_hadoop/yarn-env.sh >> ~/.bash_profile
+    
+}
+
+modifieCoreSite(){
+    #Status: Testing
+    #Notes: Run only on the NameNode
+
+    vi -c ":%s/TODO-NAMENODE-HOSTNAME:PORT/$localhost:8020/g" -c ":wq" configuration_files/core_hadoop/core-site.xml
+    
+}
+
+modifieHdfsSite(){
+    #Status: Testing
+    #Notes: Run only on the NameNode
+
+    DFS_DATA_DIR="file://$(echo "$DFS_DATA_DIR" | sed -r 's/ /, file/////g')"
+    
+    vi -c ":%s/TODO-DFS-DATA-DIR/$DFS_DATA_DIR/g" -c ":wq" configuration_files/core_hadoop/hdfs-site.xml
+
+    vi -c ":%s/TODO-NAMENODE-HOSTNAME/$localhost/g" -c ":wq" configuration_files/core_hadoop/hdfs-site.xml
+
+    DFS_NAME_DIR=$(echo "$DFS_NAME_DIR" | sed -r 's/ /,/g')
+
+    vi -c ":%s/TODO-DFS-NAME-DIR/$DFS_NAME_DIR/g" -c ":wq" configuration_files/core_hadoop/hdfs-site.xml
+
+    vi -c ":%s/TODO-FS-CHECKPOINT-DIR/$FS_CHECKPOINT_DIR/g" -c ":wq" configuration_files/core_hadoop/hdfs-site.xml
+
+    echo "Type the Host Name of your Secondary NameNode"
+    read secondaryName
+
+    vi -c ":%s/TODO-SECONDARYNAMENODE-HOSTNAME/$secondaryName/g" -c "-wq" configuration_files/core_hadoop/hdfs-site.xml
+
+    
+}
+
+modifieYarnSite(){
+    #Status: Testing
+    #Note: Execute only on the NameNode Host
+
+    vi -c ":%s/TODO-YARN-LOCAL-DIR/$YARN_LOCAL_DIR/g" -c ":wq" configuration_files/core_hadoop/yarn-site.xml
+
+    echo "Type the Host Name of your Resource Manager"
+    read resourceManager
+    
+    vi -c ":%s/TODO-RMNODE-HOSTNAME/$resourceManager/g" -c ":wq" configuration_files/core_hadoop/yarn-site.xml
+
+    vi -c ":%s/TODO-YARN-LOCAL-LOG-DIR/$YARN-LOCAL-LOG-DIR/g" -c ":wq" configuration_files/core_hadoop/yarn-site.xml
+    
+}
+
+modifieMapredSite(){
+    #Status: Testing
+    #Note: Execute only on the NameNode Host 'Optional'
+
+    echo "Type the Host Name of your JobHistory Server"
+    read jobHistory
+    
+    vi -c ":%s/c6401.ambari.apache.org/$jobHistory/g" -c ":wq" configuration_files/core_hadoop/yarn-site.xml
+}
+
+setSpecialConfigurations(){
+    #Status: Testing
+    #Note: Execute on all servers, The function takes the yarn-utils.log to set the  resources each server can use for the function of yarn and hadoop
+
+    vi -c ":%s/=/ /g" -c ":wq" yarn-utils.log
 }
 
 # =============================================================================

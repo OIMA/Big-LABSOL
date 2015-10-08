@@ -1,0 +1,16 @@
+ Using cores 16 memory 64GB disks 4 hbase True
+ Profile: cores 16 memory 49152MB reserved 16GB usableMem 48GB disks 4
+ Num Container 8
+ Container Ram 6144MB
+ Used Ram 48GB
+ Unused Ram 16GB
+ yarn.scheduler.minimum-allocation-mb 6144
+ yarn.scheduler.maximum-allocation-mb 49152
+ yarn.nodemanager.resource.memory-mb 49152
+ mapreduce.map.memory.mb 6144
+ mapreduce.map.java.opts -Xmx4915m
+ mapreduce.reduce.memory.mb 6144
+ mapreduce.reduce.java.opts -Xmx4915m
+ yarn.app.mapreduce.am.resource.mb 6144
+ yarn.app.mapreduce.am.command-opts -Xmx4915m
+ mapreduce.task.io.sort.mb 2457
